@@ -1,0 +1,42 @@
+spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+---
+spring:
+  profiles: pre
+  datasource:
+    url: jdbc:postgresql://pre-db:5432/mydb
+    driver-class-name: org.postgresql.Driver
+    username: preuser
+    password: prepassword
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+
+---
+spring:
+  profiles: pro
+  datasource:
+    url: jdbc:postgresql://pro-db:5432/mydb
+    driver-class-name: org.postgresql.Driver
+    username: prousr
+    password: propassword
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
